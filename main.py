@@ -68,7 +68,6 @@ class sortlines: # table class for organizing lines
             res = True
         return x, res
 
-# [1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], def main():\n
 
 
 def linevec(line, count): # Defines line keys (vec cuz a list of nums is a vector) and returns a list of the key, the line and its line number
