@@ -31,7 +31,7 @@ def downloadgithub(query, max_results, download_dir): # downloads github reposit
         for index, result in enumerate(results, 1):
             repo_name = result["full_name"]
             repos.append(repo_name)
-            download_url = result["html_url"] + "/archive/master.zip"
+            download_url = result["html_url"] + f"/archive/{result['default_branch']}.zip"
             download_path = os.path.join(
                 download_dir, f"{repo_name.split('/')[-1]}_{index}.zip")
             print(f"Downloading {repo_name}...") # download the repository zip file
@@ -457,8 +457,9 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except:
-        print("Error, please restart.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        print("Please restart.")
     # save filessorted.storage in a text file so you dont have to keep updating it
     # could also use a similar storage function to store empty assignment and then remove all identical lines in repos
     # (Done) sort similar lines by count, any consecutive series of 4 or more lines is returned
